@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>穆斯林手册</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+-->
+</style>
+<script type="text/javascript">
+var audios = document.getElementsByTagName("audio");
+// 暂停函数
+function pauseAll() {
+    var self = this;
+    [].forEach.call(audios, function (i) {
+        // 将audios中其他的audio全部暂停
+        i !== self && i.pause();
+		i.currentTime = 0;
+        //i !== self && i.stop();
+    })
+}
+// 给play事件绑定暂停函数
+[].forEach.call(audios, function (i) {
+    i.addEventListener("play", pauseAll.bind(i));
+})
+</script>
+</head>
+
+<body>
+<div align="center">
+	<div style="position:relative; max-width:800px; border:0px;" align="center">
+	 <img src="images/4_099.jpg" width="98%"><br>
+
+	</div>
+    <br><a href="index.html.htm" style="font-size: 24px;">返回目录</a><br><br><br></div>
+</body>
+</html>
