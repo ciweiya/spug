@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>穆斯林手册</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #e0eafc 100%);
+  font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 12px;
+}
+h1 {
+  font-size: 1.3em;
+  color: #3a5ba0;
+  background: #eaf3ff;
+  border-radius: 12px;
+  padding: 10px 18px;
+  margin: 24px 0 12px 0;
+  box-shadow: 0 2px 8px rgba(58,91,160,0.06);
+  letter-spacing: 1px;
+}
+h2, h3 {
+  font-size: 1em;
+  color: #2d3a4b;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+}
+.link-card {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.10);
+  margin: 14px 0;
+  padding: 18px 18px;
+  text-decoration: none;
+  color: #2d3a4b;
+  font-size: 1.08em;
+  font-weight: 500;
+  transition: box-shadow 0.18s, transform 0.18s, background 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.link-card:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #4f8cff;
+  border-bottom: 2px solid #4f8cff;
+  transform: translateY(-50%) rotate(-45deg);
+}
+.link-card:hover, .link-card:active {
+  box-shadow: 0 6px 24px rgba(79,140,255,0.18);
+  transform: translateY(-2px) scale(1.03);
+  background: #f0f6ff;
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 2px;
+  }
+  h1 {
+    font-size: 1.08em;
+    padding: 8px 10px;
+    margin: 18px 0 8px 0;
+  }
+  .link-card {
+    padding: 14px 12px;
+    font-size: 1em;
+    margin: 10px 0;
+  }
+}
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: #4f8cff;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.18);
+}
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+@media (max-width: 100%) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+    margin: 0 0 10px 0;
+    padding: 8px 0;
+    position: relative;
+    z-index: 5;
+  }
+  .nav-list.active {
+    display: flex;
+  }
+}
+.STYLE1 {
+  color: #FF5722;
+  font-weight: bold;
+}
+.collapse-content {
+  padding-left: 0.5em;
+  border-left: 2px solid #e0eafc;
+  margin: 0 0 0 8px;
+  transition: max-height 0.3s ease;
+}
+.collapsible {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.collapsible .arrow {
+  margin-left: 8px;
+  border: solid #4f8cff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  transition: transform 0.3s;
+}
+.collapsible.active .arrow {
+  transform: rotate(-135deg);
+}
+.sub-card {
+  background: #f7faff;
+  margin-left: 16px;
+  font-size: 0.98em;
+  box-shadow: none;
+}
+</style>
+<script>
+function toggleMenu() {
+  var nav = document.getElementById('nav-list');
+  nav.classList.toggle('active');
+}
+function addTouchFeedback() {
+  var cards = document.querySelectorAll('.link-card');
+  cards.forEach(function(card) {
+    card.addEventListener('touchstart', function() {
+      card.style.background = '#e6f0ff';
+      card.style.transform = 'scale(0.98)';
+    });
+    card.addEventListener('touchend', function() {
+      card.style.background = '';
+      card.style.transform = '';
+    });
+    card.addEventListener('touchcancel', function() {
+      card.style.background = '';
+      card.style.transform = '';
+    });
+  });
+}
+function toggleCollapse(el) {
+  el.classList.toggle('active');
+  var content = el.nextElementSibling;
+  if (content.style.display === 'none' || content.style.display === '') {
+    content.style.display = 'block';
+  } else {
+    content.style.display = 'none';
+  }
+}
+document.addEventListener('DOMContentLoaded', addTouchFeedback);
+/* 修复小屏幕适配 */
+@media (max-width: 480px) {
+  body {
+    min-width: 320px; /* 兼容超小屏幕 */
+  }
+  .container {
+    width: 100%;
+    max-width: none;
+    padding: 8px 4px;
+    box-sizing: border-box;
+  }
+  .link-card {
+    width: calc(100% - 16px);
+    padding: 12px 8px;
+    font-size: 0.95em;
+  }
+  .link-card:after {
+    right: 8px;
+  }
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="menu-toggle" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div id="nav-list" class="nav-list">
+<h1>一、阿拉伯语发音学习篇</h1>
+<a class="link-card" href="p1_1.html">1.阿语字母表</a>
+<a class="link-card" href="p1_2.html">2.阿语音素总表</a>
+<a class="link-card" href="p1_3.html">3.发音练习一：静音符、开口符、齐齿符、合口符 </a>
+<a class="link-card" href="p1_4.html">4.发音练习二：长音、软音</a>
+<a class="link-card" href="p1_5.html">5.发音练习三：叠音</a>
+<a class="link-card" href="p1_6.html">6.发音练习四：鼻音</a>
+<a class="link-card" href="p1_7.html">7.发音练习五：<span class="STYLE1"> ز </span>的静音<span class="STYLE1"> زْ </span>或 鼻音</a>
+<a class="link-card" href="p1_8.html">8.发音练习六：太阴字母与太阳字母的读法</a>
+<a class="link-card" href="p1_9.html">9.安拉的九十九个尊名</a>
+<a class="link-card" href="p1_10.html">10.穆斯林日常用语</a>
+<h1>二、古兰经初级学习篇</h1>
+<a class="link-card" href="p2_1.html">1.第一章 开端（法谛哈）</a>
+<a class="link-card" href="p2_2.html">2.第二章 黄牛（巴格勒）1-5节</a>
+<a class="link-card" href="p2_3.html">3.第二章 255节（宾座的经文） </a>
+<a class="link-card" href="p2_4.html">4.第一零二章 竞赛富庶（太卡素尔)</a>
+<a class="link-card" href="p2_5.html">5.第一零三章 时光（阿斯尔）</a>
+<a class="link-card" href="p2_6.html">6.第一零四章 诽谤者（胡买宰）</a>
+<a class="link-card" href="p2_7.html">7.第一一二章 忠诚（以赫拉斯）</a>
+<a class="link-card" href="p2_8.html">8.第一一三章 曙光（法赖格）</a>
+<a class="link-card" href="p2_9.html">9.第一一四章 世人（拿斯）</a>
+<h1>三、伊斯兰的信仰（以玛尼）学习篇</h1>
+<a class="link-card" href="p3.html">清真言、作证言、总信言、分信言、赞主词</a>
+<h1>四、礼拜学习篇</h1>
+<a class="link-card" href="p4_1.html">1.礼拜的意义和功效</a>
+<a class="link-card" href="p4_2.html">2.礼拜的时间</a>
+<a class="link-card" href="p4_3.html">3.礼拜前的准备</a>
+<a class="link-card" href="p4_4.html">4.洁净</a>
+<div class="link-card collapsible" onclick="toggleCollapse(this)">5.礼拜程序<span class="arrow"></span></div>
+<div class="collapse-content" style="display:none;">
+  <a class="link-card sub-card" href="p4_5_1.html">（1）唤礼与成班词</a>
+  <a class="link-card sub-card" href="p4_5_2.html">（2）立意礼拜</a>
+  <a class="link-card sub-card" href="p4_5_3.html">（3）礼拜动作图示</a>
+  <a class="link-card sub-card" href="p4_5_4.html">（4）拜后赞颂词</a>
+  <a class="link-card sub-card" href="p4_5_5.html">（5）因拜中失误而作的叩头</a>
+  <a class="link-card sub-card" href="p4_5_6.html">（6）集体礼拜</a>
+</div>
+<a class="link-card" href="p4_6.html">6.特别日子的礼拜</a>
+<h1>五、常用祈祷词篇</h1>
+<a class="link-card" href="p5.html">常用祈祷词篇</a>
+<h1>六、古兰经中的祈祷文篇</h1>
+<a class="link-card" href="p6.html">古兰经中的祈祷文篇（四十段“我们的主啊”）</a>
+</div>
+</div>
+</body>
+
+</html>
